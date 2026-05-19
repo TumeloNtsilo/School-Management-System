@@ -4,24 +4,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Fullname is required")
     private String fullName;
+
+    @NotBlank(message = "ID number is required")
     private String idNumber;
+
+    @Min(value = 1, message = "Grade must at least be 1")
+    @Max(value = 12, message = "The highest grade is 12")
     private int grade;
     private Role role = Role.STUDENT;
 
     public Student(){}
 
-    public Student(String fullName, String idNumber, int grade, Role role){
+    public Student(String fullName, String idNumber, int grade){
         this.fullName = fullName;
         this.idNumber = idNumber;
         this.grade = grade;
-        this.role = role;
     }
 
     public Long getId() {

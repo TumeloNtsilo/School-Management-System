@@ -1,19 +1,30 @@
 package com.schoolmanagement.controller;
 
+import com.schoolmanagement.model.Student;
+import com.schoolmanagement.repository.StudentRepository;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Scanner;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
+    private StudentRepository studentRepo;
+
+    public StudentController(StudentRepository studentRepo){
+        this.studentRepo = studentRepo;
+    }
 
     @GetMapping
-    public String getStudents(){
-        return "List of students";
+    public List<Student> getStudents(){
+        return studentRepo.findAll();
     }
 
     @PostMapping
-    public void postStudents(){
-        System.out.println("Modify later");
+    public void modifyName(@RequestBody @Valid Student newStudent){
+        studentRepo.save(newStudent);
     }
 
     @PatchMapping
