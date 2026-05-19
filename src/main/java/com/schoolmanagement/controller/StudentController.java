@@ -6,7 +6,6 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Scanner;
 
 @RestController
 @RequestMapping("/students")
@@ -32,8 +31,18 @@ public class StudentController {
 
     }
 
-    @PutMapping
-    public void putStudents(){}
+    @PutMapping("/{id}")
+    public Student replaceStudent(@RequestBody @Valid Student newStudent, @PathVariable Long id){
+        Student student = studentRepo.findById(id)
+                .orElseThrow();
+
+        student.setFullName(newStudent.getFullName());
+        student.setIdNumber(newStudent.getIdNumber());
+        student.setGrade(newStudent.getGrade());
+
+        return studentRepo.save(student);
+
+    }
 
     @DeleteMapping
     public void deleteStudents(){}
