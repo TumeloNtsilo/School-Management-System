@@ -2,6 +2,7 @@ package com.schoolmanagement.controller;
 
 import com.schoolmanagement.model.Student;
 import com.schoolmanagement.repository.StudentRepository;
+import com.schoolmanagement.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,20 +11,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private StudentRepository studentRepo;
+    private final StudentService studentService;
 
-    public StudentController(StudentRepository studentRepo){
-        this.studentRepo = studentRepo;
+    public StudentController(StudentService studentService){
+        this.studentService = studentService;
     }
 
     @GetMapping
     public List<Student> getStudents(){
-        return studentRepo.findAll();
+        return studentService.getAllStudents();
     }
 
     @PostMapping
-    public void modifyName(@RequestBody @Valid Student newStudent){
-        studentRepo.save(newStudent);
+    public void addNewStudent(@RequestBody @Valid Student newStudent){
+        studentService.addNewStudent(newStudent);
     }
 
     @PatchMapping
@@ -33,15 +34,7 @@ public class StudentController {
 
     @PutMapping("/{id}")
     public Student replaceStudent(@RequestBody @Valid Student newStudent, @PathVariable Long id){
-        Student student = studentRepo.findById(id)
-                .orElseThrow();
-
-        student.setFullName(newStudent.getFullName());
-        student.setIdNumber(newStudent.getIdNumber());
-        student.setGrade(newStudent.getGrade());
-
-        return studentRepo.save(student);
-
+        return studentService.replaceStudent(newStudent, id);
     }
 
     @DeleteMapping
