@@ -37,5 +37,13 @@ public class StudentService {
 
     }
 
+    public Student removeStudent(Long id){
+        Student student = studentRepo.findById(id)
+                .orElseThrow();
+        studentRepo.delete(student);
+
+        return student;
+    }
+
 
 }
