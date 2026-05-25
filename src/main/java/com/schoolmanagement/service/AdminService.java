@@ -4,7 +4,9 @@ import com.schoolmanagement.model.Admin;
 import com.schoolmanagement.model.Student;
 import com.schoolmanagement.repository.AdminRepository;
 import com.schoolmanagement.repository.StudentRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -58,6 +60,10 @@ public class AdminService {
 
     public List<Student> getAllStudents(){
         return studentRepo.findAll();
+    }
+
+    public void addNewStudent(Student student){
+        studentRepo.save(student);
     }
 
     public Student replaceStudent(Student newStudent, Long id){

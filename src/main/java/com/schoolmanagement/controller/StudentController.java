@@ -21,28 +21,5 @@ public class StudentController {
         return studentService.getStudentDetails();
     }
 
-    @GetMapping
-    public List<Student> getStudents(){
-        return studentService.getAllStudents();
-    }
 
-    @PostMapping
-    public void addNewStudent(@RequestBody @Valid Student newStudent){
-        studentService.addNewStudent(newStudent);
-    }
-
-    @PatchMapping
-    public void patchStudents(){
-
-    }
-
-    @PutMapping("/{id}")
-    public Student replaceStudent(@RequestBody @Valid Student newStudent, @PathVariable Long id){
-        return studentService.replaceStudent(newStudent, id);
-    }
-
-    @DeleteMapping("{id}")
-    public Student deleteStudents(@PathVariable Long id){
-        return studentService.removeStudent(id);
-    }
 }
