@@ -2,10 +2,8 @@ package com.schoolmanagement.service;
 
 import com.schoolmanagement.model.Student;
 import com.schoolmanagement.repository.StudentRepository;
-import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -15,6 +13,10 @@ public class StudentService {
 
     public StudentService(StudentRepository studentRepo){
         this.studentRepo = studentRepo;
+    }
+
+    public String getStudentDetails(){
+        return studentRepo.toString();
     }
 
     public List<Student> getAllStudents(){

@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/student")
 public class StudentController {
     private final StudentService studentService;
 
     public StudentController(StudentService studentService){
         this.studentService = studentService;
+    }
+
+    @GetMapping
+    public String getStudent(){
+        return studentService.getStudentDetails();
     }
 
     @GetMapping
