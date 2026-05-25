@@ -19,32 +19,9 @@ public class StudentService {
         return studentRepo.toString();
     }
 
-    public List<Student> getAllStudents(){
-        return studentRepo.findAll();
-    }
 
     public void addNewStudent(Student newStudent){
         studentRepo.save(newStudent);
-    }
-
-    public Student replaceStudent(Student newStudent, Long id){
-        Student oldStudent = studentRepo.findById(id)
-                .orElseThrow();
-
-        oldStudent.setFullName(newStudent.getFullName());
-        oldStudent.setIdNumber(newStudent.getIdNumber());
-        oldStudent.setGrade(newStudent.getGrade());
-
-        return studentRepo.save(oldStudent);
-
-    }
-
-    public Student removeStudent(Long id){
-        Student student = studentRepo.findById(id)
-                .orElseThrow();
-        studentRepo.delete(student);
-
-        return student;
     }
 
 
