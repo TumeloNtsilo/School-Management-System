@@ -1,7 +1,6 @@
 package com.schoolmanagement.controller;
 
 import com.schoolmanagement.model.Student;
-import com.schoolmanagement.repository.StudentRepository;
 import com.schoolmanagement.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
