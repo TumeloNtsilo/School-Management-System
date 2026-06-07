@@ -1,12 +1,10 @@
-package com.schoolmanagement.service;
+package com.schoolmanagement.admin.service;
 
-import com.schoolmanagement.model.Admin;
-import com.schoolmanagement.model.Student;
-import com.schoolmanagement.repository.AdminRepository;
-import com.schoolmanagement.repository.StudentRepository;
-import jakarta.validation.Valid;
+import com.schoolmanagement.admin.model.Admin;
+import com.schoolmanagement.student.model.Student;
+import com.schoolmanagement.admin.repository.AdminRepository;
+import com.schoolmanagement.student.repository.StudentRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 

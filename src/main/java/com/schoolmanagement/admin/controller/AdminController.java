@@ -1,8 +1,8 @@
-package com.schoolmanagement.controller;
+package com.schoolmanagement.admin.controller;
 
-import com.schoolmanagement.model.Admin;
-import com.schoolmanagement.model.Student;
-import com.schoolmanagement.service.AdminService;
+import com.schoolmanagement.admin.model.Admin;
+import com.schoolmanagement.student.model.Student;
+import com.schoolmanagement.admin.service.AdminService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

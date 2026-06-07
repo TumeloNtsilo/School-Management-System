@@ -1,11 +1,9 @@
-package com.schoolmanagement.service;
+package com.schoolmanagement.student.service;
 
-import com.schoolmanagement.model.Student;
-import com.schoolmanagement.repository.StudentRepository;
+import com.schoolmanagement.student.model.Student;
+import com.schoolmanagement.student.repository.StudentRepository;
 
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class StudentService {

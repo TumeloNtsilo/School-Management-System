@@ -1,5 +1,6 @@
-package com.schoolmanagement.model;
+package com.schoolmanagement.student.model;
 
+import com.schoolmanagement.enums.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

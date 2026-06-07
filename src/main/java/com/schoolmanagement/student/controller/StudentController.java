@@ -1,14 +1,10 @@
-package com.schoolmanagement.controller;
+package com.schoolmanagement.student.controller;
 
-import com.schoolmanagement.model.Student;
-import com.schoolmanagement.service.StudentService;
-import jakarta.validation.Valid;
+import com.schoolmanagement.student.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/com/schoolmanagement/student")
 public class StudentController {
     private final StudentService studentService;
 
